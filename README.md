@@ -82,7 +82,9 @@ try {
 
 for (Cliente c : clientes) {
 
-&nbsp;   System.out.println(c.getNumeroCuenta() + " - " + c.getNombre() + " - " + c.getSaldo());
+	// Este es un print directo pero se etiende, con sus getters puede usar los datos
+
+  System.out.println(c.getNumeroCuenta() + " - " + c.getNombre() + " - " + c.getSaldo());
 
 }
 
