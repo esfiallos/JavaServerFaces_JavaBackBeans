@@ -58,17 +58,17 @@ List<Cliente> clientes = null;
 
 try {
 
-&nbsp;	//Usar la función ara obtener los clientes
+	//Usar la función ara obtener los clientes
 
-&nbsp;   clientes = repo.getClientes();
+   clientes = repo.getClientes();
 
 
 
 } catch (IOException | NumberFormatException e) {
 
-&nbsp;   FacesContext.getCurrentInstance().addMessage(null,
+  FacesContext.getCurrentInstance().addMessage(null,
 
-&nbsp;       new FacesMessage(FacesMessage.SEVERITY\_ERROR, "Error al cargar clientes", e.getMessage()));
+     new FacesMessage(FacesMessage.SEVERITY\_ERROR, "Error al cargar clientes", e.getMessage()));
 
 }
 
