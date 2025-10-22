@@ -1,23 +1,20 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml"
-      xmlns:h="jakarta.faces.html">
+      xmlns:h="jakarta.faces.html"
+      xmlns:p="http://primefaces.org/ui">
 <h:head>
-    <title>Cajero Automático</title>
-
-    <!-- Bootstrap CSS (CDN minificado) -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
-          rel="stylesheet"
-          integrity="sha384-xxxxxxxxxxxxxxxxxxxxxxxxx"
-          crossorigin="anonymous"/>
+    <title>Prueba PrimeFaces</title>
 </h:head>
 <h:body>
-    <div class="container mt-4">
-            // Todo
-    </div>
 
-    <!-- Bootstrap JS Bundle (CDN minificado) -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
-            integrity="sha384-xxxxxxxxxxxxxxxxxxxxxxxxx"
-            crossorigin="anonymous"></script>
+    <h2>Hola, PrimeFaces está funcionando</h2>
+
+    <p:button value="Haz clic aquí" icon="pi pi-check" />
+
+    <br/><br/>
+
+    <p:inputText placeholder="Escribe algo..." />
+    <p:commandButton value="Enviar" icon="pi pi-send" />
+
 </h:body>
 </html>
