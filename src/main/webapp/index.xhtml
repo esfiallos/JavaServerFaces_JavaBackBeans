@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:h="jakarta.faces.html"
+      xmlns:f="jakarta.faces.core"
       xmlns:p="http://primefaces.org/ui">
 <h:head>
     <title>Prueba PrimeFaces</title>
@@ -9,12 +10,16 @@
 
     <h2>Hola, PrimeFaces está funcionando</h2>
 
+
     <p:button value="Haz clic aquí" icon="pi pi-check" />
 
     <br/><br/>
 
     <p:inputText placeholder="Escribe algo..." />
     <p:commandButton value="Enviar" icon="pi pi-send" />
+    <br/><br/>
+    <p:button value="Ver Ayuda" outcome="Ayuda.xhtml" styleClass="ui-button-raised" />
+
 
 </h:body>
 </html>
