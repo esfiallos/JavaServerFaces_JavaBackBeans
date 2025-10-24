@@ -1,25 +1,24 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml"
-      xmlns:h="jakarta.faces.html"
-      xmlns:f="jakarta.faces.core"
-      xmlns:p="http://primefaces.org/ui">
-<h:head>
-    <title>Prueba PrimeFaces</title>
-</h:head>
-<h:body>
+      xmlns:ui="jakarta.faces.facelets"
+      xmlns:h="jakarta.faces.html">
 
-    <h2>Hola, PrimeFaces está funcionando</h2>
+<ui:composition template="/templates/template.xhtml">
+    <ui:define name="title">Inicio - Cajero UTH</ui:define>
+    <ui:define name="content">
+        <h2>Bienvenido al Cajero Automático UTH</h2>
+        <p>Este módulo pertenece a la parte de <b>Interfaz Gráfica (JSF)</b> del proyecto.</p>
 
+        <div class="card">
+            <h3>Integrante responsable</h3>
+            <p><b>Nombre:</b> Ingrid Garay</p>
+            <p><b>Rol:</b> Diseño, estructura y estilos visuales (.xhtml)</p>
+        </div>
 
-    <p:button value="Haz clic aquí" icon="pi pi-check" />
-
-    <br/><br/>
-
-    <p:inputText placeholder="Escribe algo..." />
-    <p:commandButton value="Enviar" icon="pi pi-send" />
-    <br/><br/>
-    <p:button value="Ver Ayuda" outcome="Ayuda.xhtml" styleClass="ui-button-raised" />
-
-
-</h:body>
+        <div class="card">
+            <h:link outcome="deposito" value="Ir a Depósito" styleClass="btn" />
+            <h:link outcome="retiro" value="Ir a Retiro" styleClass="btn" style="margin-left:10px" />
+        </div>
+    </ui:define>
+</ui:composition>
 </html>

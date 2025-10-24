@@ -1,56 +1,13 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:h="jakarta.faces.html"
-      xmlns:p="http://primefaces.org/ui">
-<h:head>
-    <title>Integrantes de Grupo #1</title>
-    <style>
-        body {
-            background-color: #1e1e2f;
-            color: #f0f0f0;
-            font-family: "Segoe UI", sans-serif;
-            margin: 0;
-            padding: 0;
-        }
+      xmlns:ui="jakarta.faces.facelets">
 
-        .card {
-            background-color: #2a2a3d;
-            padding: 20px;
-            border-radius: 8px;
-            box-shadow: 0 0 10px #00000055;
-            max-width: 100%;
-            margin: auto;
-            overflow-x: auto;
-        }
+<ui:composition template="/templates/template.xhtml">
 
-        table {
-            width: 100%;
-            border-collapse: collapse;
-            min-width: 400px;
-        }
+    <ui:define name="title">Ayuda - Integrantes del Grupo 1</ui:define>
 
-        th, td {
-            padding: 12px;
-            border: 1px solid #444;
-            text-align: left;
-        }
-
-        thead {
-            background-color: #007ad9;
-            color: white;
-        }
-
-        tbody tr:nth-child(1) {
-            background-color: #3a3a5a;
-        }
-
-        tbody tr:hover {
-            background-color: #444466;
-        }
-    </style>
-</h:head>
-<h:body>
-    <h:form>
+    <ui:define name="content">
         <div class="card">
             <h2 style="color:#00bfff; text-align:center;">Integrantes de Grupo #1</h2>
             <table>
@@ -84,6 +41,7 @@
                 </tbody>
             </table>
         </div>
-    </h:form>
-</h:body>
+    </ui:define>
+
+</ui:composition>
 </html>

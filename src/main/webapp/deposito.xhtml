@@ -1,10 +1,34 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml"
-      xmlns:h="jakarta.faces.html">
-<h:head>
-    <title>Depósito</title>
-</h:head>
-<h:body>
-    <!-- TODO: formulario de depósito -->
-</h:body>
+      xmlns:h="jakarta.faces.html"
+      xmlns:ui="jakarta.faces.facelets"
+      xmlns:f="jakarta.faces.core">
+
+<ui:composition template="/templates/template.xhtml">
+    <ui:define name="title">Depósito</ui:define>
+    <ui:define name="content">
+        <h2>Depósito de Fondos</h2>
+        <h:form>
+            <div class="card">
+                <label>Número de cuenta:</label>
+                <h:inputText value="#{cajero.cuenta}" required="true" />
+
+                <label>PIN:</label>
+                <h:inputSecret value="#{cajero.pin}" required="true" />
+
+                <label>Monto a depositar:</label>
+                <h:inputText value="#{cajero.monto}">
+                    <f:convertNumber type="number"/>
+                </h:inputText>
+
+                <br/><br/>
+                <h:commandButton value="Depositar" action="#{cajero.depositar}" styleClass="btn"/>
+
+                <h:panelGroup rendered="#{not empty cajero.mensaje}">
+                    <div class="msg">#{cajero.mensaje}</div>
+                </h:panelGroup>
+            </div>
+        </h:form>
+    </ui:define>
+</ui:composition>
 </html>

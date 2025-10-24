@@ -1,10 +1,35 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml"
-      xmlns:h="jakarta.faces.html">
-<h:head>
-    <title>Retiro</title>
-</h:head>
-<h:body>
-    <!-- TODO: formulario de retiro -->
-</h:body>
+      xmlns:h="jakarta.faces.html"
+      xmlns:ui="jakarta.faces.facelets"
+      xmlns:f="jakarta.faces.core">
+
+<ui:composition template="/templates/template.xhtml">s
+    <ui:define name="title">Retiro</ui:define>
+    <ui:define name="content">
+        <h2>Retiro de Efectivo</h2>
+        <h:form>
+            <div class="card">
+                <label>Número de cuenta</label>
+                <h:inputText value="#{cajero.cuenta}" required="true" />
+
+                <label>PIN</label>
+                <h:inputSecret value="#{cajero.pin}" required="true" />
+
+                <label>Monto a retirar</label>
+                <h:inputText value="#{cajero.monto}">
+                    <f:convertNumber type="number"/>
+                </h:inputText>
+
+                <br/><br/>
+                <!-- Acción conectada por el equipo de lógica -->
+                <h:commandButton value="Retirar" action="#{cajero.retirar}" styleClass="btn"/>
+
+                <h:panelGroup rendered="#{not empty cajero.mensaje}">
+                    <div class="msg">#{cajero.mensaje}</div>
+                </h:panelGroup>
+            </div>
+        </h:form>
+    </ui:define>
+</ui:composition>
 </html>
