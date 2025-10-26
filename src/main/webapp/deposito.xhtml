@@ -11,21 +11,21 @@
         <h:form>
             <div class="card">
                 <label>Número de cuenta:</label>
-                <h:inputText value="#{cajero.cuenta}" required="true" />
+                <h:inputText value="#{CajeroBean.cuenta}" required="true" />
 
                 <label>PIN:</label>
-                <h:inputSecret value="#{cajero.pin}" required="true" />
+                <h:inputSecret value="#{CajeroBean.pin}" required="true" />
 
                 <label>Monto a depositar:</label>
-                <h:inputText value="#{cajero.monto}">
+                <h:inputText value="#{CajeroBean.monto}">
                     <f:convertNumber type="number"/>
                 </h:inputText>
 
                 <br/><br/>
-                <h:commandButton value="Depositar" action="#{cajero.depositar}" styleClass="btn"/>
+                <h:commandButton value="Depositar" action="#{CajeroBean.depositar}" styleClass="btn"/>
 
-                <h:panelGroup rendered="#{not empty cajero.mensaje}">
-                    <div class="msg">#{cajero.mensaje}</div>
+                <h:panelGroup rendered="#{not empty CajeroBean.mensaje}">
+                    <div class="msg">#{CajeroBean.mensaje}</div>
                 </h:panelGroup>
             </div>
         </h:form>
