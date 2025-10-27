@@ -2,33 +2,91 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:h="jakarta.faces.html"
       xmlns:ui="jakarta.faces.facelets"
-      xmlns:f="jakarta.faces.core">
+      xmlns:p="primefaces">
 
 <ui:composition template="/templates/template.xhtml">
+
     <ui:define name="title">Depósito</ui:define>
+
     <ui:define name="content">
-        <h2>Depósito de Fondos</h2>
-        <h:form>
-            <div class="card">
-                <label>Número de cuenta:</label>
-                <h:inputText value="#{CajeroBean.cuenta}" required="true" />
+
+        <h2>Deposito de Fondos</h2>
+
+        <!-- Formulario principal -->
+        <h:form id="cajeroForm">
+
+            <!-- Panel de depósito -->
+            <p:panel header="Depósito" styleClass="card">
+
+                <!-- Mensajes globales de JSF -->
+                <p:messages id="msgs" autoUpdate="true" closable="true" showDetail="true"/>
+
+                <!-- Campos del formulario -->
+                <label>Número de Cuenta:</label>
+                <p:inputText value="#{cajeroBean.cajeroPOO.cuenta}"
+                             label="Número de cuenta"
+                             required="true"
+                             style="width:100%; margin-bottom:10px"/>
 
                 <label>PIN:</label>
-                <h:inputSecret value="#{CajeroBean.pin}" required="true" />
+                <p:password value="#{cajeroBean.cajeroPOO.pin}"
+                            label="PIN"
+                            required="true"
+                            feedback="false"
+                            style="width:100%; margin-bottom:10px"/>
 
-                <label>Monto a depositar:</label>
-                <h:inputText value="#{CajeroBean.monto}">
-                    <f:convertNumber type="number"/>
-                </h:inputText>
+                <label>Monto a Depositar:</label>
+                <p:inputNumber value="#{cajeroBean.cajeroPOO.monto}"
+                               label="Monto"
+                               required="true"
+                               minValue="1"
+                               style="width:100%; margin-bottom:10px"/>
 
-                <br/><br/>
-                <h:commandButton value="Depositar" action="#{CajeroBean.depositar}" styleClass="btn"/>
+                <!-- Botón para ejecutar acción -->
+                <p:commandButton value="Depositar"
+                                 action="#{cajeroBean.retirar()}"
+                                 update="tablaClientes msgs"
+                                 styleClass="btn"
+                                 style="margin-top:10px"/>
 
-                <h:panelGroup rendered="#{not empty CajeroBean.mensaje}">
-                    <div class="msg">#{CajeroBean.mensaje}</div>
-                </h:panelGroup>
-            </div>
+            </p:panel>
+
+            <!-- Panel con la tabla de clientes -->
+            <p:panel header="Clientes disponibles"
+                     styleClass="card"
+                     style="margin-top:20px">
+
+                <p:dataTable id="tablaClientes"
+                             value="#{cajeroBean.clientes}"
+                             var="c"
+                             paginator="true"
+                             rows="5"
+                             styleClass="tabla-custom"
+                             responsiveLayout="scroll">
+
+                    <p:column headerText="Cuenta">
+                        #{c.numeroCuenta}
+                    </p:column>
+
+                    <p:column headerText="Nombre">
+                        #{c.nombre}
+                    </p:column>
+
+                    <p:column headerText="PIN">
+                        #{c.pin}
+                    </p:column>
+
+                    <p:column headerText="Saldo">
+                        #{c.saldo}
+                    </p:column>
+
+                </p:dataTable>
+
+            </p:panel>
+
         </h:form>
+
     </ui:define>
+
 </ui:composition>
 </html>

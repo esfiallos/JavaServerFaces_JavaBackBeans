@@ -50,18 +50,54 @@
             border-radius: 8px;
             padding: 10px;
         }
+
+        .tabla-custom {
+            width: 100%;
+            border-collapse: separate;
+            border-spacing: 0;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+            border-radius: 8px;
+            overflow: hidden;
+            font-family: "Segoe UI", sans-serif;
+        }
+
+        .tabla-header th {
+            background-color: #2563eb;
+            color: white;
+            font-weight: 600;
+            padding: 10px;
+            text-align: left;
+        }
+
+        .tabla-row td {
+            background-color: #f9fafb;
+            padding: 10px;
+            border-bottom: 1px solid #ddd;
+        }
+
+        .tabla-row:nth-child(even) td {
+            background-color: #f1f5f9;
+        }
+
+        .tabla-row:hover td {
+            background-color: #e0f2fe;
+            cursor: pointer;
+        }
+
     </style>
 </h:head>
 
 <h:body>
+
     <header>
         <nav>
-            <h:link outcome="index" value="Inicio" />
-            <h:link outcome="deposito" value="Depósito" />
-            <h:link outcome="retiro" value="Retiro" />
-            <h:link outcome="Ayuda" value="Ayuda" />
+            <h:link value="Inicio" outcome="/index" />
+            <h:link value="Depósito" outcome="/deposito" />
+            <h:link value="Retiro" outcome="/retiro" />
+            <h:link value="Ayuda" outcome="/Ayuda" />
         </nav>
-    </header>s
+    </header>
+
 
     <main>
         <ui:insert name="content" />

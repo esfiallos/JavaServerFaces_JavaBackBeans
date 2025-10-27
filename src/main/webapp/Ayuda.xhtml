@@ -8,10 +8,60 @@
     <ui:define name="title">Ayuda - Integrantes del Grupo 1</ui:define>
 
     <ui:define name="content">
+
+        <style>
+            .tabla-ayuda {
+                width: 100%;
+                border-collapse: separate;
+                border-spacing: 0;
+                box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+                border-radius: 8px;
+                overflow: hidden;
+                font-family: "Segoe UI", sans-serif;
+            }
+
+            .tabla-ayuda thead th {
+                background-color: #2563eb;
+                color: white;
+                font-weight: 600;
+                padding: 10px;
+                text-align: left;
+            }
+
+            .tabla-ayuda tbody td {
+                background-color: #f9fafb;
+                padding: 10px;
+                border-bottom: 1px solid #ddd;
+            }
+
+            .tabla-ayuda tbody tr:nth-child(even) td {
+                background-color: #f1f5f9;
+            }
+
+            .tabla-ayuda tbody tr:hover td {
+                background-color: #e0f2fe;
+            }
+
+            .card h2 {
+                text-align: center;
+                color: #00bfff;
+                margin-bottom: 20px;
+            }
+
+            .card {
+                padding: 20px;
+                border-radius: 12px;
+                background-color: #ffffff;
+                box-shadow: 0 6px 20px rgba(0,0,0,0.1);
+                margin-bottom: 20px;
+            }
+        </style>
+
         <div class="card">
             <h2 style="color:#00bfff; text-align:center;">Integrantes de Grupo #1</h2>
-            <table>
-                <thead>
+
+            <table class="tabla-ayuda">
+            <thead>
                 <tr>
                     <th>Cuenta</th>
                     <th>Nombre</th>
