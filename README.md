@@ -1,4 +1,4 @@
-# **# 💻 JavaServerFaces\_JavaBackBeans**  
+# **# JavaServerFaces\_JavaBackBeans**  
 
 # **\*\*Segundo Parcial – Cajero Automático\*\***  
 
