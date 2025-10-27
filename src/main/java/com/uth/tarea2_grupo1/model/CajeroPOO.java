@@ -1,12 +1,15 @@
 package com.uth.tarea2_grupo1.model;
 
-import java.io.Serializable;
 
-public class CajeroPOO implements Serializable {
+
+public class CajeroPOO implements java.io.Serializable {
     private  String cuenta;
     private String pin;
     private double monto;
     private String mensaje;
+
+
+
 
     public CajeroPOO() {
         this.cuenta = "";
@@ -47,3 +50,4 @@ public class CajeroPOO implements Serializable {
     }
 
 }
+
