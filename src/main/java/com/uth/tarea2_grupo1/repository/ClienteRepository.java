@@ -11,12 +11,10 @@ public class ClienteRepository {
 
     private static final String FILE_PATH = "src/main/resources/clientes.csv";
 
-    public List<Cliente> getClientes() throws IOException, NumberFormatException {
+    public List<Cliente>getClientes() throws IOException, NumberFormatException {
         List<Cliente> clientes = new ArrayList<>();
-        BufferedReader lector = null;
 
-        try {
-            lector = new BufferedReader(new FileReader(FILE_PATH));
+        try (BufferedReader lector = new BufferedReader(new FileReader(FILE_PATH))) {
             String linea;
             boolean primeraLinea = true;
 
@@ -28,14 +26,14 @@ public class ClienteRepository {
 
                 String[] datos = linea.split(",");
                 if (datos.length == 5) {
-                                        //numero de cuenta
+                    //numero de cuenta
                     String numeroCuenta = datos[0].trim();
-                                    //nombre
+                    //nombre
                     String nombre = datos[1].trim();
-                                    //correo
+                    //correo
                     String correo = datos[2].trim();
-                                    //pin
-                                //saldo
+                    //pin
+                    //saldo
                     String pin = datos[3].trim();
                     double saldo = Double.parseDouble(datos[4].trim());
 
@@ -45,10 +43,6 @@ public class ClienteRepository {
                 }
             }
 
-        } finally {
-            if (lector != null) {
-                lector.close();
-            }
         }
 
         return clientes;

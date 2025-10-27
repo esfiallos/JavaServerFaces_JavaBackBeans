@@ -11,22 +11,22 @@
         <h:form>
             <div class="card">
                 <label>Número de cuenta</label>
-                <h:inputText value="#{CajeroBean.cuenta}" required="true" />
+                <h:inputText value="#{CajeroPOO.cuenta}" required="true" />
 
                 <label>PIN</label>
-                <h:inputSecret value="#{CajeroBean.pin}" required="true" />
+                <h:inputSecret value="#{CajeroPOO.pin}" required="true" />
 
                 <label>Monto a retirar</label>
-                <h:inputText value="#{CajeroBean.monto}">
+                <h:inputText value="#{CajeroPOO.monto}">
                     <f:convertNumber type="number"/>
                 </h:inputText>
 
                 <br/><br/>
                 <!-- Acción conectada por el equipo de lógica -->
-                <h:commandButton value="Retirar" action="#{CajeroBean.retirar}" styleClass="btn"/>
+                <h:commandButton value="Retirar" action="#{CajeroPOO.retirar}" styleClass="btn"/>
 
-                <h:panelGroup rendered="#{not empty CajeroBean.mensaje}">
-                    <div class="msg">#{CajeroBean.mensaje}</div>
+                <h:panelGroup rendered="#{not empty CajeroPOO.mensaje}">
+                    <div class="msg">#{CajeroPOO.mensaje}</div>
                 </h:panelGroup>
             </div>
         </h:form>
