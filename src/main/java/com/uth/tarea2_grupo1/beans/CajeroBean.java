@@ -5,16 +5,19 @@ import com.uth.tarea2_grupo1.model.Cliente;
 import com.uth.tarea2_grupo1.repository.ClienteRepository;
 import jakarta.annotation.PostConstruct;
 import jakarta.enterprise.context.SessionScoped;
+import jakarta.faces.application.FacesMessage;
+import jakarta.faces.context.FacesContext;
 import jakarta.inject.Named;
 import java.io.Serializable;
 import java.util.List;
 
-@Named("CajeroBean")
+@Named("cajeroBean")
 @SessionScoped
 public class CajeroBean implements Serializable {
     //atributos
     private CajeroPOO cajeroPOO;
     private List<Cliente> clientes;
+
 
     //metodo para cargar los clientes
     @PostConstruct
@@ -23,7 +26,8 @@ public class CajeroBean implements Serializable {
         ClienteRepository clip = new ClienteRepository();
         try{
             clientes=clip.getClientes();
-            cajeroPOO.setMensaje("Clientes cargados correctamente");
+            System.out.println("Clientes cargados: " + clientes.size());
+            cajeroPOO.setMensaje("Clientes cargados correctamente" + clientes.size());
         }catch (Exception e){
             cajeroPOO.setMensaje("Error al cargar los clientes"+e.getMessage());
         }
@@ -43,35 +47,50 @@ public class CajeroBean implements Serializable {
     public void depositar(){
         Cliente cliente=validarCliente();
         if(cliente==null){
-            cajeroPOO.setMensaje("Cuenta o PIN invalido");
+            FacesContext.getCurrentInstance().addMessage(null,
+                    new FacesMessage(FacesMessage.SEVERITY_ERROR, "Error", "Cuenta o PIN inválido"));
             return;
         }
         if(cajeroPOO.getMonto()<=0){
-            cajeroPOO.setMensaje("Monto invalido");
+            FacesContext.getCurrentInstance().addMessage(null,
+                    new FacesMessage(FacesMessage.SEVERITY_WARN, "Aviso", "Monto inválido"));
             return;
         }
 
         cliente.setSaldo(cliente.getSaldo()+ cajeroPOO.getMonto());
-        cajeroPOO.setMensaje("Saldo actual: "+cliente.getSaldo());
+
+        FacesContext.getCurrentInstance().addMessage(null,
+                new FacesMessage(FacesMessage.SEVERITY_INFO, "Depósito exitoso",
+                        "Saldo actual: " + cliente.getSaldo()));
+
+
+
     }
 
     //metodo que valida al cliente y al retiro ingresado
     public void retirar(){
         Cliente cliente=validarCliente();
         if(cliente==null){
-            cajeroPOO.setMensaje("Cuenta o PIN invalido");
+            FacesContext.getCurrentInstance().addMessage(null,
+                    new FacesMessage(FacesMessage.SEVERITY_ERROR, "Error", "Cuenta o PIN inválido"));
             return;
         }
         if(cajeroPOO.getMonto()<=0){
-            cajeroPOO.setMensaje("Monto invalido");
+            FacesContext.getCurrentInstance().addMessage(null,
+                    new FacesMessage(FacesMessage.SEVERITY_WARN, "Aviso", "Monto inválido"));
             return;
         }
         if(cliente.getSaldo()<cajeroPOO.getMonto()){
-            cajeroPOO.setMensaje("Saldo insuficiente");
+            FacesContext.getCurrentInstance().addMessage(null,
+                    new FacesMessage(FacesMessage.SEVERITY_ERROR, "Error", "Saldo Insuficiente"));
             return;
         }
         cliente.setSaldo(cliente.getSaldo()-cajeroPOO.getMonto());
-        cajeroPOO.setMensaje("Saldo actual: "+cliente.getSaldo());
+
+
+        FacesContext.getCurrentInstance().addMessage(null,
+                new FacesMessage(FacesMessage.SEVERITY_INFO, "Retiro exitoso",
+                        "Saldo actual: " + cliente.getSaldo()));
     }
 
 

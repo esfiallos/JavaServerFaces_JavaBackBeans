@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:ui="jakarta.faces.facelets"
-      xmlns:h="jakarta.faces.html">
+      xmlns:h="jakarta.faces.html" xmlns:p="primefaces">
 
 <ui:composition template="/templates/template.xhtml">
     <ui:define name="title">Inicio - Cajero UTH</ui:define>
@@ -10,15 +10,14 @@
         <p>Este módulo pertenece a la parte de <b>Interfaz Gráfica (JSF)</b> del proyecto.</p>
 
         <div class="card">
-            <h3>Integrante responsable</h3>
-            <p><b>Nombre:</b> Ingrid Garay</p>
-            <p><b>Rol:</b> Diseño, estructura y estilos visuales (.xhtml)</p>
+            <h:form>
+                <p:commandButton value="Ir a Depósito" action="deposito.xhtml?faces-redirect=true" styleClass="btn" />
+                <p:commandButton value="Ir a Retiro" action="retiro.xhtml?faces-redirect=true" styleClass="btn" style="margin-left:10px" />
+                <p:commandButton value="Ayuda" action="Ayuda.xhtml?faces-redirect=true" styleClass="btn" style="margin-left:10px" />
+            </h:form>
         </div>
 
-        <div class="card">
-            <h:link outcome="deposito" value="Ir a Depósito" styleClass="btn" />
-            <h:link outcome="retiro" value="Ir a Retiro" styleClass="btn" style="margin-left:10px" />
-        </div>
+
     </ui:define>
 </ui:composition>
 </html>
