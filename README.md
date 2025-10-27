@@ -1,10 +1,40 @@
-# JavaServerFaces\_JavaBackBeans
+# **# 💻 JavaServerFaces\_JavaBackBeans**  
+
+# **\*\*Segundo Parcial – Cajero Automático\*\***  
+
+# **\*\*Grupo #1 – UTH\*\***
+
+# 
+
+# ---
 
 
 
+\##**Integrantes**
 
 
-\# Modelado de Datos Repositorio Clientes y Clase Cliente
+
+| Cuenta         | Nombre                                       |
+
+|----------------|----------------------------------------------|
+
+| 202410060972   | Emerson Barrientos Fiallos                   |
+
+| 20241083029    | Juan Carlos López Rodríguez                  |
+
+| 202330060138   | Daniel de Jesús Montoya Rodríguez            |
+
+| 202310040339   | Ingrid Lisbeth Garay Velásquez               |
+
+| 202210030176   | Jonathan Josué Ortiz Martínez                |
+
+# 
+
+
+
+## \#  Módulo: Modelado de Datos – Cliente y Repositorio
+
+
 
 
 
@@ -12,15 +42,19 @@ Este módulo contiene la \*\*clase Cliente\*\* y la \*\*lectura de datos desde u
 
 
 
-\## Archivos incluidos
+### \## Archivos incluidos
 
 
 
-\- `Cliente.java` → Representa un cliente con atributos: número de cuenta, nombre, correo, PIN y saldo.
+| Archivo                  | Descripción                                                                                |
 
-\- `ClienteRepository.java` → Clase encargada de leer `clientes.csv` y devolver la lista de clientes.
+|--------------------------|--------------------------------------------------------------------------------------------|
 
-\- `clientes.csv` → Archivo de datos de prueba con 5 clientes.
+| `Cliente.java`           | Modelo que representa un cliente con número de cuenta, nombre, correo, PIN y saldo.        |
+
+| `ClienteRepository.java` | Clase encargada de leer el archivo `clientes.csv` y devolver una lista de objetos `Cliente`|
+
+| `clientes.csv`           | Archivo de datos de prueba con 5 clientes registrados.                                     |
 
 
 
@@ -28,11 +62,11 @@ Este módulo contiene la \*\*clase Cliente\*\* y la \*\*lectura de datos desde u
 
 
 
-\## Uso
+### \## Uso de Repositorio
 
 
 
-\### 1. Crear una instancia del repositorio
+* Crear una instancia del repositorio
 
 
 
@@ -44,7 +78,7 @@ ClienteRepository repo = new ClienteRepository();
 
 
 
-\### 2. Obtener Clientes
+* Obtener Clientes
 
 
 
@@ -68,13 +102,13 @@ try {
 
   FacesContext.getCurrentInstance().addMessage(null,
 
-     new FacesMessage(FacesMessage.SEVERITY\_ERROR, "Error al cargar clientes", e.getMessage()));
+     new FacesMessage(FacesMessage.SEVERITY\\\_ERROR, "Error al cargar clientes", e.getMessage()));
 
 }
 
 ```
 
-\### 3. Consumir la lista
+* Consumir la lista
 
 
 
@@ -89,8 +123,4 @@ for (Cliente c : clientes) {
 }
 
 ```
-
-
-
-
 
